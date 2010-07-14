@@ -33,6 +33,13 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
       group node[:owner_name]
       mode 0755
     end
+    
+    directory "/data/hs/current/config/thinkingsphinx" do
+      owner node[:owner_name]
+      group node[:owner_name]
+      mode 0755
+      action :create
+    end
 
     directory "/var/log/engineyard/sphinx/#{app_name}" do
       recursive true
@@ -74,6 +81,7 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
         :mem_limit => 32
       })
     end
+    
     
     link "/data/hs/shared/config/sphinx.yml" do
       to "/data/hs/current/config/sphinx.yml"
