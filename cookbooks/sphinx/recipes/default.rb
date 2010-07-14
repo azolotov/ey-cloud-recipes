@@ -78,7 +78,7 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
         :app_name => app_name,
         :user => node[:owner_name],
         :flavor => flavor.eql?("thinking_sphinx") ? "thinkingsphinx" : flavor,
-        :mem_limit => 32
+        :mem_limit => 17408
       })
     end
     
