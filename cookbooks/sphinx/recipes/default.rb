@@ -75,8 +75,11 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
       })
     end
     
-    link "/data/hs/shared/config/sphinx.yml" do
-      to "/data/hs/current/config/sphinx.yml"
+    # link "/data/hs/shared/config/sphinx.yml" do
+    #   to "/data/hs/current/config/sphinx.yml"
+    # end
+    link "/data/hs/current/config/sphinx.yml" do
+      to "/data/hs/shared/config/sphinx.yml"
     end
 
     execute "sphinx config" do
