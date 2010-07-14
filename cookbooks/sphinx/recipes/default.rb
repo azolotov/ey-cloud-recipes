@@ -74,6 +74,10 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
         :mem_limit => 32
       })
     end
+    
+    link "/data/hs/shared/config/sphinx.yml" do
+      to "/data/hs/current/config/sphinx.yml"
+    end
 
     execute "sphinx config" do
       command "rake #{flavor}:configure"
