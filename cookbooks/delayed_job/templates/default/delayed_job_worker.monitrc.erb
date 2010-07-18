@@ -1,5 +1,5 @@
 check process delayed_job
-  with pidfile /var/run/engineyard/dj/<%= @app_name %>/<%= @worker_name %>.pid
+  with pidfile /var/run/engineyard/dj/<%= @app_name %>/dj_<%= @worker_name %>.pid
   start program = "/engineyard/bin/dj <%= @app_name %> start production <%= @worker_name %>"
   stop program = "/engineyard/bin/dj <%= @app_name %> stop production <%= @worker_name %>"
   group dj_<%= @app_name %>
