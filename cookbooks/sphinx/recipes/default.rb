@@ -28,8 +28,6 @@ if ['solo', 'app', 'app_master'].include?(node[:instance_role])
       message "configuring #{flavor}"
     end
     
-    execute "killall -9 searchd"
-
     directory "/var/run/sphinx" do
       owner node[:owner_name]
       group node[:owner_name]
